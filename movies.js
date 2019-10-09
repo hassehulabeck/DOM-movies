@@ -52,13 +52,18 @@ function populateSelect() {
 
 function rateMovie() {
     var selector = document.getElementsByTagName("select");
+
+    // Få fram ett indexvärde som motsvarar den valda option
     var selected = selector[0].selectedIndex;
+
+    // Hämta filmtiteln som ligger som value i optionen.
     var selectedMovie = selector[0].options[selected].value;
     var rating = document.getElementsByTagName("input");
-    // Get index of movietitle
+    // Få ett indexvärde som motsvaras av titeln i en av filmerna i movies.
     let index = movies.findIndex(function (movie) {
         return movie.title == selectedMovie;
     });
+    // Sätt ny rating, samt sortera och rendera.
     movies[index].rating = rating[0].value;
     sortMovies();
     renderMovies();
