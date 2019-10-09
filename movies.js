@@ -41,9 +41,11 @@ function sortMovies() {
 }
 
 function populateSelect() {
+    // En funktion som "befolkar" en select/dropdown-meny.
     var selector = document.getElementsByTagName("select")
     movies.forEach(function (movie) {
         var option = document.createElement("option");
+        /* Egentligen är det alltid bättre att jobba med id-värden istället för title (dvs strängvärden), men för den här gången... */
         option.value = movie.title;
         option.innerText = movie.title;
         selector[0].appendChild(option);
